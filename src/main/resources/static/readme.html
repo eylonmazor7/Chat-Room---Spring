@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>README</title>
+    <h1>Eylon Mazor And Dor Rozin - ex4 - Web programing B</h1>
+    <p>
+        Name: Eylon Mazor </br>
+        Email: eylonma@edu.hac.ac.il </br>
+        I.D: 205438369 </br>
+        </br>
+        Name: Dor Rozin </br>
+        Email: dorro@edu.hac.ac.il </br>
+        I.D: 205618267 </br>
+    </p>
+
+    <a href = "api/index.html"> JavaDoc link </a><br>
+
+    <p>
+        In this exercise we have been asked to build some sort of a chat website. <br>
+        The welcome page will contain a text box where the user will enter its username. <br>
+        Every try to put a URL which is wrong or belong to a different page will cause a redirecting to the login page. <br>
+        After entering a username which is not currently in use, the user will be forwarded to the chat page. <br>
+        The chat will present the last five messages sent by the users. The page will also contain a list of current online users. <br>
+        An inactive user (for 600 seconds) will be automatically disconnected and sent back to login page. <br><br>
+
+        The last five messages and the active users list will be updated every ten seconds.<br>
+        Every user could send a message at the box displayed at the page. <br><br>
+
+        There will be a link to the search page, which will contain two searching options- by username and by text. <br>
+
+        We have used Thymeleaf to update the html page when loading the page. <br>
+        There's a use of an SQL database for storing and pulling data (messages and usernames).<br><br>
+        Two kinds of Beans took place in our project - <br>
+        1. Application level Bean- used to manage the list of users and update it. Will be created only once, when the application start its running.<br>
+        2. Session level Bean- used to represent a user.
+
+
+    <ul style="line-height: 1.5">
+        <li>
+            My Java packages:
+            <ol>
+                <li><b>Package beans</b>
+                    <p><u>Class UserBeansA</u> - this class represent session scope of each user that login.
+                    In this session, we save all the data about the user.</p>
+                    <p><u>Class UserOnlineA</u> - this class represent application scope.
+                    In this class we manage the users status, and save the online users in map with the last time
+                    they do some action (after 60 seconds inactivity the user will be disconnected).</p>
+                </li>
+                <li><b>Package Controller</b>
+                    <p><u>Class ApiController</u> - this controller responsible to update the DB, and send update to the
+                        users of who still online and the last messages. </p>
+                    <p><u>Class Errors</u> - The controller catches wrong URLs. </p>
+                    <p><u>Class MainController</u> - this controller responsible to manage the user navigation between pages,
+                        and get new users.</p>
+                </li>
+                <li><b>Package DB</b>
+                    <p><u>Class ChatMessage</u> - This class represent the our SQL table.
+                        The Entity annotation represent work with a database.</p>
+                    <p><u>Interface ChatInter</u> - this interface allow us to retrieving data from the data base using queries.</p>
+                </li>
+                <li><b>Package HttpHelpers</b>
+                    <p><u>Class ReqMes</u> - This class represent every user request for a text search. </p>
+                    <p><u>Class ResMes</u> - This class represent our response message for the client.</p>
+                </li>
+                <li><b>Bean Configuration</b>
+                    A configuration file that determines which configuration level will be assigned for the beans.
+                </li>
+            </ol>
+        </li><br>
+        <li>
+            My Java Scrypt files:
+            <ol>
+                <li><u>chat.js</u> - Managing data related to messages and updating the user's data.</li>
+                <li><u>login.js</u> - Validating the user name entered before moving into the chat page.</li>
+                <li><u>search.js</u> - Managing the searches for required words and presenting results.</li>
+            </ol>
+        </li><br>
+    </ul>
+    </p>
+
+</head>
+<body>
+</body>
+</html>
